@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>낭만커뮤니티 | More Romance, Less Ordinary</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum:wght@400;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==================================================
+   BASE
+================================================== */
+
+:root{
+    --black:#090909;
+    --black2:#111;
+    --white:#f5f3ed;
+    --gray:#9a9a9a;
+    --red:#ef242b;
+    --line:#303030;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--black);
+    color:var(--white);
+    font-family:"Gowun Dodum",sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    pointer-events:none;
+    opacity:.04;
+
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+button{
+    font:inherit;
+}
+
+::selection{
+    background:var(--red);
+    color:white;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5vw;
+
+    z-index:1000;
+
+    transition:.35s;
+}
+
+header.scrolled{
+    height:68px;
+    background:rgba(5,5,5,.82);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-family:"Black Han Sans";
+    font-size:22px;
+    letter-spacing:-2px;
+}
+
+.logo span{
+    color:var(--red);
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:42px;
+}
+
+nav a{
+    font-size:14px;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:2px;
+
+    background:var(--red);
+
+    transition:.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+.header-button{
+    padding:13px 25px;
+    border:1px solid #aaa;
+    border-radius:100px;
+
+    transition:.3s;
+}
+
+.header-button:hover{
+    background:white;
+    color:#111;
+}
+
+.menu{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:26px;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero{
+    position:relative;
+
+    min-height:100vh;
+
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+
+    align-items:center;
+
+    padding:130px 5vw 70px;
+
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:550px;
+    height:550px;
+
+    left:-250px;
+    top:30%;
+
+    background:var(--red);
+
+    filter:blur(250px);
+    opacity:.08;
+
+    pointer-events:none;
+}
+
+.hero-copy{
+    position:relative;
+    z-index:5;
+
+    padding-right:40px;
+}
+
+.hero-small{
+    font-family:"Nanum Pen Script";
+    font-size:28px;
+
+    transform:rotate(-4deg);
+
+    margin-bottom:5px;
+}
+
+.hero-title{
+    position:relative;
+
+    margin:20px 0 25px;
+
+    color:var(--red);
+
+    font-family:"Black Han Sans";
+    font-size:clamp(75px,9vw,150px);
+
+    line-height:.8;
+    letter-spacing:-8px;
+
+    transform:rotate(-4deg);
+}
+
+.hero-title::after{
+    content:"";
+
+    position:absolute;
+
+    width:70%;
+    height:8px;
+
+    left:10%;
+    bottom:-17px;
+
+    background:var(--red);
+
+    transform:rotate(-3deg);
+}
+
+.hero-slogan{
+    margin-top:50px;
+
+    font-family:"Nanum Pen Script";
+    font-size:clamp(30px,3vw,48px);
+
+    line-height:1.15;
+}
+
+.hero-description{
+    max-width:430px;
+
+    margin-top:40px;
+
+    color:#ccc;
+
+    line-height:1.8;
+}
+
+.main-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:space-between;
+
+    min-width:290px;
+
+    margin-top:28px;
+    padding:19px 28px;
+
+    border:2px solid var(--red);
+    border-radius:100px;
+
+    color:#ff3d43;
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.main-button:hover{
+    color:white;
+    background:var(--red);
+
+    transform:translateY(-4px);
+}
+
+.members{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    margin-top:22px;
+
+    color:#bbb;
+    font-size:13px;
+}
+
+.avatars{
+    display:flex;
+}
+
+.avatar{
+    width:34px;
+    height:34px;
+
+    margin-left:-8px;
+
+    border:2px solid #111;
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    background:#ddd;
+    color:#111;
+
+    font-size:11px;
+}
+
+.avatar:first-child{
+    margin-left:0;
+}
+
+
+/* HERO PHOTO */
+
+.hero-visual{
+    position:relative;
+
+    height:76vh;
+    min-height:620px;
+
+    z-index:2;
+}
+
+.hero-photo{
+    position:absolute;
+    inset:0;
+
+    overflow:hidden;
+
+    clip-path:polygon(
+        10% 2%,
+        95% 8%,
+        100% 25%,
+        97% 96%,
+        10% 100%,
+        4% 83%,
+        7% 53%,
+        0 26%
+    );
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.25),
+            rgba(0,0,0,.02)
+        ),
+        url("poster.png");
+
+    background-size:cover;
+    background-position:center 25%;
+
+    filter:saturate(.9) contrast(1.05);
+}
+
+.hero-tape{
+    position:absolute;
+
+    right:0;
+    top:20px;
+
+    width:140px;
+    height:42px;
+
+    z-index:4;
+
+    background:rgba(230,225,215,.75);
+
+    transform:rotate(15deg);
+}
+
+.photo-message{
+    position:absolute;
+
+    right:8%;
+    top:22%;
+
+    z-index:5;
+
+    color:#111;
+
+    font-family:"Nanum Pen Script";
+    font-size:32px;
+
+    transform:rotate(-8deg);
+}
+
+.romance-note{
+    position:absolute;
+
+    right:-10px;
+    bottom:15%;
+
+    z-index:6;
+
+    color:var(--red);
+
+    font-family:"Nanum Pen Script";
+    font-size:36px;
+
+    line-height:.9;
+
+    transform:rotate(-10deg);
+}
+
+
+/* ==================================================
+   CATEGORY
+================================================== */
+
+.categories{
+    max-width:1500px;
+
+    margin:auto;
+    padding:45px 5vw 80px;
+
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+
+    gap:10px;
+}
+
+.category{
+    text-align:center;
+
+    padding:20px 10px;
+
+    border-radius:15px;
+
+    transition:.3s;
+}
+
+.category:hover{
+    background:#151515;
+
+    transform:translateY(-8px);
+}
+
+.category-icon{
+    margin-bottom:12px;
+
+    font-size:38px;
+}
+
+.category strong{
+    display:block;
+
+    font-size:14px;
+}
+
+.category span{
+    display:block;
+
+    margin-top:5px;
+
+    color:#aaa;
+
+    font-size:11px;
+    letter-spacing:.1em;
+}
+
+
+/* ==================================================
+   STORY
+================================================== */
+
+.story{
+    position:relative;
+
+    max-width:1500px;
+
+    margin:auto;
+    padding:100px 5vw 150px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+
+    align-items:center;
+
+    gap:70px;
+}
+
+.story-photo{
+    position:relative;
+
+    padding:12px;
+
+    background:#eee;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.7);
+
+    transform:rotate(-6deg);
+}
+
+.story-photo img{
+    height:380px;
+
+    object-fit:cover;
+    object-position:center 60%;
+}
+
+.story-photo::before{
+    content:"";
+
+    position:absolute;
+
+    top:-20px;
+    left:34%;
+
+    width:120px;
+    height:40px;
+
+    background:rgba(220,215,205,.75);
+
+    transform:rotate(5deg);
+}
+
+.story-copy{
+    text-align:center;
+}
+
+.story-copy blockquote{
+    font-family:"Nanum Pen Script";
+    font-size:clamp(30px,3vw,45px);
+
+    line-height:1.25;
+}
+
+.story-copy small{
+    display:block;
+
+    margin-top:30px;
+
+    color:#999;
+}
+
+.polaroid{
+    padding:12px 12px 35px;
+
+    background:#eee;
+    color:#111;
+
+    transform:rotate(8deg);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.7);
+}
+
+.polaroid img{
+    height:350px;
+
+    object-fit:cover;
+    object-position:center 40%;
+}
+
+.polaroid p{
+    padding:18px 8px 0;
+
+    font-family:"Nanum Pen Script";
+    font-size:25px;
+}
+
+
+/* ==================================================
+   TAGS
+================================================== */
+
+.tags{
+    max-width:1000px;
+
+    margin:-70px auto 100px;
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+
+    gap:10px;
+
+    padding:0 20px;
+}
+
+.tag{
+    padding:10px 18px;
+
+    border:1px solid #555;
+    border-radius:100px;
+
+    color:#ddd;
+
+    font-size:13px;
+
+    transition:.3s;
+}
+
+.tag:hover{
+    border-color:var(--red);
+    color:var(--red);
+
+    transform:translateY(-3px);
+}
+
+
+/* ==================================================
+   JOIN SECTION
+================================================== */
+
+.join{
+    position:relative;
+
+    min-height:700px;
+
+    display:grid;
+    grid-template-columns:.8fr 1fr .8fr;
+
+    align-items:center;
+
+    gap:70px;
+
+    padding:80px 5vw 120px;
+
+    overflow:hidden;
+}
+
+.join-photo{
+    position:relative;
+
+    margin-left:-10vw;
+
+    transform:rotate(-7deg);
+}
+
+.join-photo img{
+    height:470px;
+
+    object-fit:cover;
+    object-position:center 35%;
+
+    clip-path:polygon(
+        0 10%,
+        90% 0,
+        100% 15%,
+        91% 95%,
+        0 100%
+    );
+}
+
+.join-photo-text{
+    position:absolute;
+
+    left:30%;
+    bottom:25%;
+
+    font-family:"Nanum Pen Script";
+    font-size:34px;
+
+    transform:rotate(-5deg);
+}
+
+.join-main{
+    text-align:center;
+}
+
+.ready{
+    display:inline-block;
+
+    position:relative;
+
+    font-family:"Nanum Pen Script";
+    font-size:70px;
+
+    transform:rotate(-3deg);
+}
+
+.ready::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:2px;
+
+    width:100%;
+    height:6px;
+
+    background:var(--red);
+
+    transform:rotate(3deg);
+}
+
+.join-main p{
+    margin:25px 0;
+
+    color:#ccc;
+
+    line-height:1.8;
+}
+
+.join-btn{
+    display:inline-flex;
+
+    min-width:300px;
+
+    justify-content:center;
+    gap:30px;
+
+    padding:20px 35px;
+
+    background:var(--red);
+
+    border-radius:100px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.join-btn:hover{
+    transform:scale(1.05);
+
+    box-shadow:0 10px 40px rgba(239,36,43,.25);
+}
+
+
+/* CONTACT */
+
+.contact{
+    align-self:center;
+}
+
+.contact-title{
+    font-family:"Nanum Pen Script";
+    font-size:30px;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:18px;
+
+    color:#ddd;
+
+    font-size:14px;
+}
+
+.contact-icon{
+    width:35px;
+    height:35px;
+
+    display:grid;
+    place-items:center;
+
+    border:1px solid #444;
+    border-radius:50%;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer{
+    padding:30px 5vw 45px;
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:12px;
+    letter-spacing:.15em;
+}
+
+footer span{
+    color:#bbb;
+}
+
+
+/* ==================================================
+   REVEAL
+================================================== */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal.active{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:1000px){
+
+    nav{
+        position:fixed;
+
+        inset:0;
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+
+        background:#090909;
+
+        transform:translateX(100%);
+
+        transition:.4s;
+    }
+
+    nav.open{
+        transform:translateX(0);
+    }
+
+    nav a{
+        font-size:26px;
+    }
+
+    .header-button{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+
+        position:relative;
+        z-index:1100;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+
+        padding-top:130px;
+    }
+
+    .hero-copy{
+        padding-right:0;
+    }
+
+    .hero-visual{
+        height:600px;
+
+        margin-top:60px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .story{
+        grid-template-columns:1fr;
+
+        max-width:700px;
+    }
+
+    .story-photo,
+    .polaroid{
+        max-width:450px;
+        margin:auto;
+    }
+
+    .join{
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .join-photo{
+        max-width:600px;
+
+        margin:auto;
+    }
+
+    .contact{
+        margin:auto;
+
+        text-align:left;
+    }
+}
+
+
+@media(max-width:600px){
+
+    header{
+        height:70px;
+
+        padding:0 22px;
+    }
+
+    .hero{
+        padding:
+            110px 22px
+            50px;
+    }
+
+    .hero-title{
+        font-size:70px;
+
+        letter-spacing:-5px;
+    }
+
+    .hero-small{
+        font-size:22px;
+    }
+
+    .hero-slogan{
+        font-size:31px;
+    }
+
+    .main-button{
+        width:100%;
+        min-width:0;
+    }
+
+    .hero-visual{
+        height:500px;
+        min-height:0;
+    }
+
+    .photo-message{
+        font-size:23px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .story{
+        padding-left:22px;
+        padding-right:22px;
+    }
+
+    .story-photo img,
+    .polaroid img{
+        height:280px;
+    }
+
+    .tags{
+        margin-top:-80px;
+    }
+
+    .join{
+        padding-left:22px;
+        padding-right:22px;
+    }
+
+    .join-photo img{
+        height:340px;
+    }
+
+    .ready{
+        font-size:52px;
+    }
+
+    .join-btn{
+        min-width:0;
+        width:100%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header id="header">
+
+    <a href="#" class="logo">
+        <span>낭만</span>커뮤니티
+    </a>
+
+    <nav id="nav">
+        <a href="#home">홈</a>
+        <a href="#story">우리의 이야기</a>
+        <a href="#activities">모임 일정</a>
+        <a href="#story">사진첩</a>
+        <a href="#join">함께하기</a>
+    </nav>
+
+    <a href="#join" class="header-button">
+        지금, 낭만하기 →
+    </a>
+
+    <button class="menu" id="menu">
+        ☰
+    </button>
+
+</header>
+
+
+<main>
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-copy reveal">
+
+        <div class="hero-small">
+            평범한 하루를 특별하게,
+        </div>
+
+        <h1 class="hero-title">
+            낭만커뮤니티
+        </h1>
+
+        <div class="hero-slogan">
+            친구와 함께라면<br>
+            길에서 눈을 떠도 추억이다.
+        </div>
+
+        <p class="hero-description">
+            낭만커뮤니티는<br>
+            낭만이라고 생각되는 무슨 짓이든 하는<br>
+            열정 가득한 사람들의 모임입니다.
+        </p>
+
+        <a href="#join" class="main-button">
+            지금, 낭만에 합류하기
+            <span>→</span>
+        </a>
+
+        <div class="members">
+
+            <div class="avatars">
+                <div class="avatar">낭</div>
+                <div class="avatar">만</div>
+                <div class="avatar">♥</div>
+                <div class="avatar">+</div>
+            </div>
+
+            <span>
+                지금도 새로운 낭만을<br>
+                함께 만들고 있어요.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual reveal">
+
+        <div class="hero-photo"></div>
+
+        <div class="hero-tape"></div>
+
+        <div class="photo-message">
+            언제나, 어디서나,<br>
+            낭만적으로.
+        </div>
+
+        <div class="romance-note">
+            ROMANCE<br>
+            NEVER<br>
+            ENDS ↗
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CATEGORIES
+================================================== -->
+
+<section class="categories" id="activities">
+
+    <div class="category reveal">
+        <div class="category-icon">✈</div>
+        <strong>여행</strong>
+        <span>TRAVEL</span>
+    </div>
+
+    <div class="category reveal">
+        <div class="category-icon">△</div>
+        <strong>캠핑</strong>
+        <span>CAMPING</span>
+    </div>
+
+    <div class="category reveal">
+        <div class="category-icon">🚗</div>
+        <strong>드라이브</strong>
+        <span>DRIVE</span>
+    </div>
+
+    <div class="category reveal">
+        <div class="category-icon">♨</div>
+        <strong>술 & 모임</strong>
+        <span>DRINK</span>
+    </div>
+
+    <div class="category reveal">
+        <div class="category-icon">⚽</div>
+        <strong>스포츠</strong>
+        <span>SPORTS</span>
+    </div>
+
+    <div class="category reveal">
+        <div class="category-icon">🔥</div>
+        <strong>새로운 도전</strong>
+        <span>CHALLENGE</span>
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     STORY
+================================================== -->
+
+<section class="story" id="story">
+
+    <div class="story-photo reveal">
+
+        <img src="poster.png" alt="낭만커뮤니티 모임">
+
+    </div>
+
+
+    <div class="story-copy reveal">
+
+        <blockquote>
+            “낭만은,<br>
+            정의된 것이 아니라<br>
+            낭만이라는 말로 포장해서<br>
+            내 몸을 연료로 불태우는<br>
+            광기다.”
+        </blockquote>
+
+        <small>
+            - 낭만커뮤니티 1기 모집원의 아버지 -
+        </small>
+
+    </div>
+
+
+    <div class="polaroid reveal">
+
+        <img src="poster.png" alt="함께한 낭만">
+
+        <p>
+            함께라서 더 빛나는 순간 ♡
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     TAGS
+================================================== -->
+
+<section class="tags">
+
+    <span class="tag">#여행</span>
+    <span class="tag">#캠핑</span>
+    <span class="tag">#드라이브</span>
+    <span class="tag">#술모임</span>
+    <span class="tag">#스포츠</span>
+    <span class="tag">#다이빙</span>
+    <span class="tag">#패러글라이딩</span>
+    <span class="tag">#번지점프</span>
+    <span class="tag">#맛집</span>
+    <span class="tag">#그리고더많은낭만</span>
+
+</section>
+
+
+<!-- ==================================================
+     JOIN
+================================================== -->
+
+<section class="join" id="join">
+
+    <div class="join-photo reveal">
+
+        <img src="poster.png" alt="낭만의 순간">
+
+        <div class="join-photo-text">
+            지금이<br>
+            가장 좋은 순간.
+        </div>
+
+    </div>
+
+
+    <div class="join-main reveal">
+
+        <h2 class="ready">
+            Are You Ready?
+        </h2>
+
+        <p>
+            더 재미있는 인생에 투자하는<br>
+            가장 확실한 방법, 낭만커뮤니티.
+        </p>
+
+        <a
+            href="mailto:liveinhall96@naver.com"
+            class="join-btn"
+        >
+            지금, 낭만하기
+            <span>→</span>
+        </a>
+
+    </div>
+
+
+    <div class="contact reveal">
+
+        <div class="contact-title">
+            CONTACT
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-icon">☎</div>
+
+            <a href="tel:07082873405">
+                070-8287-3405
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-icon">✉</div>
+
+            <a href="mailto:liveinhall96@naver.com">
+                liveinhall96@naver.com
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-icon">◎</div>
+
+            <span>
+                @romance_community
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    낭만커뮤니티
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+
+    <span>
+        MORE ROMANCE, LESS ORDINARY
+    </span>
+
+</footer>
+
+
+<script>
+
+/* ==================================================
+   HEADER
+================================================== */
+
+const header = document.querySelector("#header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 40){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
+
+});
+
+
+/* ==================================================
+   MOBILE MENU
+================================================== */
+
+const menu = document.querySelector("#menu");
+const nav = document.querySelector("#nav");
+
+menu.addEventListener("click", () => {
+
+    nav.classList.toggle("open");
+
+    if(nav.classList.contains("open")){
+        menu.textContent = "✕";
+    }else{
+        menu.textContent = "☰";
+    }
+
+});
+
+
+document.querySelectorAll("nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        nav.classList.remove("open");
+        menu.textContent = "☰";
+
+    });
+
+});
+
+
+/* ==================================================
+   SCROLL REVEAL
+================================================== */
+
+const elements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("active");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},{
+    threshold:.12
+});
+
+
+elements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* ==================================================
+   HERO PARALLAX
+================================================== */
+
+const heroPhoto = document.querySelector(".hero-photo");
+
+window.addEventListener("scroll", () => {
+
+    if(window.innerWidth < 900) return;
+
+    const scroll = window.scrollY;
+
+    if(scroll < window.innerHeight){
+
+        heroPhoto.style.transform =
+            `translateY(${scroll * .08}px) scale(1.03)`;
+
+    }
+
+});
+
+
+/* ==================================================
+   CARD TILT
+================================================== */
+
+const cards =
+    document.querySelectorAll(".story-photo, .polaroid");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+
+        if(window.innerWidth < 900) return;
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            e.clientX - rect.left;
+
+        const y =
+            e.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateX =
+            (y - centerY) / 30;
+
+        const rotateY =
+            (centerX - x) / 30;
+
+        card.style.transform =
+            `perspective(800px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             scale(1.03)`;
+
+    });
+
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
